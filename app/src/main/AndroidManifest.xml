@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.cs373.finalproject">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FinalProject">
+        <activity android:name=".customRequests"></activity>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Request"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".FCFS"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".SSTF"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".SCAN"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".LOOK"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".NSTEPSCAN"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".CSCAN"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".CLOOK"
+            tools:ignore="Instantiatable" />
+    </application>
+
+</manifest>

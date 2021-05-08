@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#869C27B0"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Seek Strategy Comparison"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintBottom_toTopOf="@id/info"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="10dp"
+        tools:text="Seek Strategy Comparison" />
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adjust the slider to the preferred number of requests and press 'Randomize' to generate requests"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@id/slider1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/slider1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stepSize="1.0"
+        android:valueFrom="1.0"
+        android:valueTo="15.0"
+        app:layout_constraintBottom_toTopOf="@id/Runbutton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/info" />
+
+    <Button
+        android:id="@+id/Runbutton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:onClick="defaultRequests"
+        android:text="Run Default"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/results"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/randombutton"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/slider1" />
+
+    <Button
+        android:id="@+id/randombutton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:onClick="randomize"
+        android:text="Randomize"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/results"
+        app:layout_constraintLeft_toRightOf="@id/Runbutton"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/slider1"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TableLayout
+        android:id="@+id/results"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Runbutton">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+
+            <TextView
+                android:id="@+id/algorithms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Algorithms"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/avgtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Avg. Time"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/sdtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="St. Deviation"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/vartime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Variance"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textStyle="italic" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/fcfstitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FCFS" />
+
+            <TextView
+                android:id="@+id/fcfsavgoutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="(placeholder)" />
+
+            <TextView
+                android:id="@+id/fcfsstdevoutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="(placeholder)" />
+
+            <TextView
+                android:id="@+id/fcfsvaroutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(placeholder)" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/sstftitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SSTF" />
+
+            <TextView
+                android:id="@+id/sstfavgoutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="(placeholder)" />
+
+            <TextView
+                android:id="@+id/sstfstdevoutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="(placeholder)" />
+
+            <TextView
+                android:id="@+id/sstfvaroutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(placeholder)" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/scantitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SCAN" />
+
+            <TextView
+                android:id="@+id/scanavgoutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="(placeholder)" />
+
+            <TextView
+                android:id="@+id/scanstdevoutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="(placeholder)" />
+
+            <TextView
+                android:id="@+id/scanvaroutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(placeholder)" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/looktitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LOOK" />
+
+            <TextView
+                android:id="@+id/lookavgoutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="(placeholder)" />
+
+            <TextView
+                android:id="@+id/lookstdevoutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="(placeholder)" />
+
+            <TextView
+                android:id="@+id/lookvaroutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(placeholder)" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/cscantitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CSCAN" />
+
+            <TextView
+                android:id="@+id/cscanavgoutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="(placeholder)" />
+
+            <TextView
+                android:id="@+id/cscanstdevoutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="(placeholder)" />
+
+            <TextView
+                android:id="@+id/cscanvaroutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(placeholder)" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/clooktitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CLOOK" />
+
+            <TextView
+                android:id="@+id/clookavgoutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="(placeholder)" />
+
+            <TextView
+                android:id="@+id/clookstdevoutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="(placeholder)" />
+
+            <TextView
+                android:id="@+id/clookvaroutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(placeholder)" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/nstepscantitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="N-STEP SCAN" />
+
+            <TextView
+                android:id="@+id/nstepavgoutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="(placeholder)" />
+
+            <TextView
+                android:id="@+id/nstepstdevoutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="(placeholder)" />
+
+            <TextView
+                android:id="@+id/nstepvaroutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(placeholder)" />
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/linlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/results"
+        tools:layout_editor_absoluteX="10dp">
+
+
+        <ScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/requeststitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="25dp"
+                    android:text="Requests Processed:"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintBottom_toTopOf="@id/requestwindow"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/requestwindow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(placeholder)"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/requeststitle" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
